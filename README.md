@@ -10,6 +10,7 @@ The Repo contains
 1. Python Module `number_logic` containing a script `number_logic.py` with the core logic with clear explanation of each function.
 2. Input files containing data in the `input` folder. 
 3. Unit tests (functionality and exception/error handling checks) under the `tests` folder.
+4. The `spec` folder contains the Original Scope of work.
 
 ## How To Run
 ###---------------------------------------------
