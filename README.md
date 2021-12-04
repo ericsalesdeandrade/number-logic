@@ -3,11 +3,11 @@ by Eric Sales De Andrade (4 Dec 2021)
 
 This is an exercise to find 3 numbers in a list whose sum totals a pre-defined value (Problem 1). See requirements in the file `problem1.txt`.
 
-The solution is written in Python 3.8.5 and testing done using the `pytest` module. 
+The solution is written in Python 3.8.5 and testing done using the `pytest` module. Below are instructions how to setup your environment in the `How To Run` section. 
 
 ## Repo 
 The Repo contains
-1. Python Script `number_logic.py` containing all the core logic with clear explanation of each function.
+1. Python Module `number_logic` containing a script `number_logic.py` with the core logic with clear explanation of each function.
 2. Input files containing data in the `input` folder. 
 3. Unit tests (functionality and exception/error handling checks) under the `tests` folder.
 
@@ -18,7 +18,7 @@ The Repo contains
 #### Install Python and Virtual Environment
 As a first step you'll need to prepare a Python environment. 
 
-Mac OSX comes pre installed with Python 2.7, but you'll need to upgrade to `Python 3.8.5`
+Mac OS X comes pre installed with Python 2.7, but you'll need to upgrade to `Python 3.8.5`
 
 You can do this with Anaconda (useful for creating a virtual environment) or just install it directly from the web. This link may be useful - https://python.land/installing-python
 
@@ -26,6 +26,7 @@ Follow these instructions for creating a Virtual Environment with Anaconda - htt
 
 #### Install Requirements
 The code uses the `pytest` module so you'll need to install it via pip. To install pip kindly follow the instructions here - https://www.makeuseof.com/tag/install-pip-for-python/
+
 Once you've installed python and pip please navigate to the Root Directory `Wayflyer_ESDA` and run the below command
 ```
 pip install -r requirements.txt
@@ -86,4 +87,5 @@ ALL possible code breakage.
 - Package the script as a python module hosted in PackageCloud
 or similar rather than just scripts. The CI/CD pipeline
 would download this as a package and install it and run the Unit tests on deployment.
-- Write more detailed documentation and architecture diagrams.
+- Build a docker image of the code, store it in a cloud Image Registry and deploy via a Docker container on a server e.g. Kubernetes Pod.
+- Write more detailed documentation/README and architecture diagrams.
