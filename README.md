@@ -1,20 +1,19 @@
-# Wayflyer Interview Exercise
-by Eric Sales De Andrade (4 Dec 2021)
+# Number Logic and Unit Testing with PyTest
+by Eric Sales De Andrade (9 May 2022)
 
-This is an exercise to find 3 numbers in a list whose sum totals a pre-defined value (Problem 1). See requirements in the file `problem1.txt`.
+This is an exercise to find 3 numbers in a list whose sum totals a pre-defined value.
 
-The solution is written in Python 3.8.5 and testing done using the `pytest` module. Below are instructions how to setup your environment in the `How To Run` section. 
+The solution is written in Python 3.8.5 and tested using the `pytest` module. Below are instructions how to setup your environment in the `How To Run` section. 
 
 ## Repo 
 The Repo contains
 1. Python Module `number_logic` containing a script `number_logic.py` with the core logic with clear explanation of each function.
-2. Input files containing data in the `input` folder. 
+2. Input files containing data in the `number-logic/number_logic/src/input` folder. 
 3. Unit tests (functionality and exception/error handling checks) under the `tests` folder.
-4. The `spec` folder contains the Original Scope of work.
 
 ## How To Run
 ###---------------------------------------------
-### Step 1 - Prepare the environment
+### Step 1 - Prepare your local environment
 
 #### Install Python and Virtual Environment
 As a first step you'll need to prepare a Python environment. 
@@ -35,10 +34,10 @@ pip install -r requirements.txt
 
 ###---------------------------------------------
 
-### Step 2 - Run Module `num_logic`
-From the Root Directory `Wayflyer_ESDA` run
+### Step 2 - Run Module `number_logic`
+From the Root Directory run
 ```
-python num_logic
+python number_logic
 ```
 
 You should get a similar response as below
@@ -56,7 +55,7 @@ Now lets run the Unit Test
 
 ### Step 3 - Run Unit Tests
 ```
-pytest ./tests/test_number_logic.py -v
+pytest ./tests/unit/test_number_logic.py -v -s
 ```
 
 If the tests pass, you should get a response
@@ -81,12 +80,3 @@ tests/test_number_logic.py::test_multiply_values_exception PASSED               
 
 ### Congratulations you've run and tested the code successfully
 ###-----------------------------------------------------------------------------------------
-
-## What I would implement for production
-- Fully comprehensive Unit and Integration tests to test
-ALL possible code breakage.
-- Package the script as a python module hosted in PackageCloud
-or similar rather than just scripts. The CI/CD pipeline
-would download this as a package and install it and run the Unit tests on deployment.
-- Build a docker image of the code, store it in a cloud Image Registry and deploy via a Docker container on a server e.g. Kubernetes Pod.
-- Write more detailed documentation/README and architecture diagrams.
