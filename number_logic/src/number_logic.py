@@ -1,16 +1,19 @@
 import os
 import sys
+import logging
 from pathlib import Path
 from functools import reduce
+
+logger = logging.getLogger()
+logging.getLogger().setLevel(logging.INFO)
 
 
 class NumberLogic:
     """
     Class to Calculate Number Logic
     """
-
     def __init__(self):
-        print("Number Class Initialised!")
+        logger.info("Number Logic Class Initialised!")
 
     @staticmethod
     def read_input_file(file_path: str, file_name: str) -> list:
@@ -26,20 +29,19 @@ class NumberLogic:
             with open(file_path_updated, 'r') as f:
                 try:
                     if os.stat(file_path_updated).st_size > 0:
-                        print("Valid File found")
+                        logger.info("Valid File found")
                     else:
-                        print("Empty file")
+                        logger.info("Empty file")
                         sys.exit(0)
                 except OSError:
-                    print("No file")
+                    logger.info("No file")
                 data_read = [line.strip() for line in f]
                 f.close()
                 return data_read
         except FileNotFoundError:
-            print(f'ERROR - File {file_name} does not exist')
-            raise FileNotFoundError
+            raise FileNotFoundError(f'ERROR - File {file_name} does not exist')
         except Exception as error:
-            print("Error Reading Input File")
+            logger.error(error)
             raise error
 
     @staticmethod
@@ -53,11 +55,10 @@ class NumberLogic:
             input_list_int = list(map(int, input_list_str))
             return input_list_int
         except ValueError as error:
-            print("String Value in Input File. Please ensure input only contains numbers. Skipping for NOW")
-            raise error
+            raise ValueError("String Value in Input File. Please ensure input only contains numbers. Skipping for NOW")
             pass
         except Exception as error:
-            print("Error Converting List to int")
+            logger.error("Error Converting List to int")
             raise error
 
     @staticmethod
@@ -81,7 +82,7 @@ class NumberLogic:
             else:
                 raise ValueError("Check Value is NOT Integer. Exiting...")
         except Exception as error:
-            print("Error In Check Sum Functionality")
+            logger.error("Error In Check Sum Functionality")
             raise error
 
     @staticmethod
@@ -95,13 +96,12 @@ class NumberLogic:
             if isinstance(list_of_val, list):
                 if all(isinstance(element, int) for element in list_of_val):
                     result = reduce(lambda x, y: x * y, list_of_val)
-                    print(f"The multiplication of the 3 numbers is {result}")
+                    logger.info(f"The multiplication of the 3 numbers is {result}")
                     return result
                 else:
                     raise ValueError("All elements in the list are not integers")
-        except TypeError as error:
-            print("Check Value should be integer")
-            raise error
+        except TypeError:
+            raise TypeError("Check Value should be integer")
         except Exception as error:
-            print("Error In Multiply Functionality")
+            logger.info("Error In Multiply Functionality")
             raise error
